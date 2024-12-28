@@ -5,7 +5,7 @@ def pswd_validate(pswd):
     p_lower = False
     p_digit = False
     
-    if pass_len <= 8: # checking if password more than 8 alphachar
+    if pass_len < 8: # checking if password more than 8 alphachar
         p_not_met.append('Password need 8 character or more. ')
         for char in pswd:
             if 'A' <= char <= 'Z':
@@ -26,4 +26,8 @@ def pswd_validate(pswd):
 
 pswd = input('Enter password : ')
 pswd_check = pswd_validate(pswd)
-print(" ".join(pswd_check))
+
+if pswd_check:
+    print(" ".join(pswd_check)) # Joining the string
+else:
+    print("Password is valid")
